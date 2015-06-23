@@ -1,4 +1,4 @@
-# Scala sbt project template for me #
+# Hello, Scala World!
 
-おれおれ用のテンプレート作っておく
+初めてのScalaのお勉強用プロジェクト
 
