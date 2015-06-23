@@ -1,5 +1,4 @@
-package com.example.fizzbuzz
-
+package com.example.scala.fizzbuzz
 
 object FizzBuzz {
 
