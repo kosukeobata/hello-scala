@@ -12,18 +12,18 @@ object WordCount {
     println(g.distinct)
     println(g)
     val a = g.foldLeft(Map.empty[String, Int]){ (fruitmap, fruit) =>
+      val value = fruitmap.get(fruit)
       fruitmap + (fruit -> {
-        1
-//        + (for((key, value) <- fruitmap) if (key == fruit) 1 else 0)
+        1 + value.getOrElse(0)
       })
     }
     println(a)
-    a.map(x => println(x))
-    for ((key, value) <- a) if (key == Nil) 1 else 0
-        a.foreach { kv =>
-          val (key, value) = kv
-          println(s"key:$key, value:$value")
-          println("key: " + key + ", value: " + value)
-        }
+//    a.map(x => println(x))
+//    for ((key, value) <- a) if (key == Nil) 1 else 0
+//        a.foreach { kv =>
+//          val (key, value) = kv
+//          println(s"key:$key, value:$value")
+//          println("key: " + key + ", value: " + value)
+//        }
   }
 }
