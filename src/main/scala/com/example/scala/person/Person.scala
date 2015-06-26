@@ -9,14 +9,42 @@ package com.example.scala.person
       new Person(name, age, friend :: friends)
     }
 
+    def +(other: Person): Person = {
+      Person(s" $name ${other.name}",
+            age + other.age,
+            friends ::: other.friends)
+    }
+
     def showFriend(): Unit = {
       friends.foreach(println)
+    }
+
+    /* 高階関数 */
+    def map(f: String => String): Person = {
+      val newName = f(name)
+      Person(newName, age ,friends)
     }
   }
 
 object PersonMain {
   def main (args: Array[String]): Unit = {
-    val katsuo = new Person("カツオ", 23)
+    val katsuo = new Person("カツオ", 23, List("dio"))
+    val tanaka = new Person("タナカ", 29, List("shimamoto"))
+    val newPerson = katsuo + tanaka
+    println("*** newPerson ***")
+    println(newPerson)
+
+
+    val person2 = Person("田中", 29)
+    val newperson2 = person2.map { name =>
+      name match {
+        case "田中" => "タナカジノ"
+        case "田部"   => "BTB"
+        case _       => name
+      }
+    }
+    println("*** newperson2 ***")
+    println(newperson2)
 
     katsuo.addFriend("tabe")
 
@@ -91,6 +119,8 @@ object PersonMain {
       i <- 0 to 10
     } yield i * 2
   }
+
+
 
   def showExistOnly(p: Option[Person]): Unit = {
     // 値がある場合は、Windowsを追加する。
