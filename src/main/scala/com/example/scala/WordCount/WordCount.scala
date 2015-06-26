@@ -1,11 +1,9 @@
 package com.example.scala.WordCount
 
 object WordCount {
-
 //  def countFruits(lines: List[String]): Map[String, Int] = {
 //    Map("", 5)
 //  }
-
   def main(args: Array[String]) {
     val fruits = List("apple banana", "orange apple mango", "kiwi papaya orange","mango orange muscat apple")
     val g = fruits.map(x => x.split(" ")).flatten
